@@ -62,9 +62,10 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "urlBruter.pipelines.UrlbruterPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    # Pipeline для вывода данных в формате csv в файл output.csv
+   "urlBruter.pipelines.UrlbruterPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

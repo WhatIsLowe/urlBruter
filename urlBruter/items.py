@@ -7,6 +7,20 @@ import scrapy
 
 
 class UrlbruterItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    """Итем UrlBruter
+
+    Items:
+        title: Заголовок сайта,
+        meta_description: Мета-описание,
+        phone_number: Номер(а) телефона,
+        email: Почта(ы),
+        inn: ИНН,
+        url: Ссылка на сайт
+    """
+
+    title = scrapy.Field()  # Заголовок сайта
+    meta_description = scrapy.Field()   # Мета-описание
+    phone_number = scrapy.Field()  # Найденные номера телефонов
+    email = scrapy.Field()  # Email
+    inn = scrapy.Field()    # ИНН
+    url = scrapy.Field()    # Ссылка на сайт

@@ -4,6 +4,7 @@ import os
 import scrapy.http
 from scrapy import Spider
 from urllib.parse import urlparse
+from ..items import UrlbruterItem
 import re
 
 
@@ -68,12 +69,14 @@ class Bruter(Spider):
             yield from self.parse_page(response)
 
     def parse_page(self, response: scrapy.http.Response):
-        item = {'title': response.xpath('//title/text()').get() or 'н/д',
-                'meta-description': response.xpath('//meta[@name="description"]'
-                                                   '/@content').get() or 'н/д',
-                'phone_numbers': self.find_phone_number(response=response.text) or 'н/д',
-                'email': self.find_email(response=response.text) or 'н/д',
-                'inn': self.find_inn(response=response.text) or 'н/д', 'url': response.url}
+        item = UrlbruterItem()
+        item['title'] = response.xpath('//title/text()').get() or 'н/д'
+        item['meta-description'] = response.xpath('//meta[@name="description"]'
+                                                   '/@content').get() or 'н/д'
+        item['phone_numbers'] = self.find_phone_number(response=response.text) or 'н/д'
+        item['email'] = self.find_email(response=response.text) or 'н/д'
+        item['inn'] = self.find_inn(response=response.text) or 'н/д'
+        item['url'] = response.url
         yield item
 
     def add_scheme(self, urls: list) -> list:
