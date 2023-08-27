@@ -7,20 +7,20 @@ import scrapy
 
 
 class UrlbruterItem(scrapy.Item):
-    """Итем UrlBruter
+    """РС‚РµРј UrlBruter
 
     Items:
-        title: Заголовок сайта,
-        meta_description: Мета-описание,
-        phone_number: Номер(а) телефона,
-        email: Почта(ы),
-        inn: ИНН,
-        url: Ссылка на сайт
+        title: Р—Р°РіРѕР»РѕРІРѕРє СЃР°Р№С‚Р°,
+        meta_description: РњРµС‚Р°-РѕРїРёСЃР°РЅРёРµ,
+        phone_number: РќРѕРјРµСЂ(Р°) С‚РµР»РµС„РѕРЅР°,
+        email: РџРѕС‡С‚Р°(С‹),
+        inn: РРќРќ,
+        url: РЎСЃС‹Р»РєР° РЅР° СЃР°Р№С‚
     """
 
-    title = scrapy.Field()  # Заголовок сайта
-    meta_description = scrapy.Field()   # Мета-описание
-    phone_number = scrapy.Field()  # Найденные номера телефонов
+    title = scrapy.Field()  # Р—Р°РіРѕР»РѕРІРѕРє СЃР°Р№С‚Р°
+    meta_description = scrapy.Field()   # РњРµС‚Р°-РѕРїРёСЃР°РЅРёРµ
+    phone_number = scrapy.Field()  # РќР°Р№РґРµРЅРЅС‹Рµ РЅРѕРјРµСЂР° С‚РµР»РµС„РѕРЅРѕРІ
     email = scrapy.Field()  # Email
-    inn = scrapy.Field()    # ИНН
-    url = scrapy.Field()    # Ссылка на сайт
+    inn = scrapy.Field()    # РРќРќ
+    url = scrapy.Field()    # РЎСЃС‹Р»РєР° РЅР° СЃР°Р№С‚

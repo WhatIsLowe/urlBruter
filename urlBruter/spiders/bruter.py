@@ -14,9 +14,9 @@ class Bruter(Spider):
     start_urls = []
 
     custom_settings = {
-        'FEED_FORMAT': 'csv',
-        'FEED_EXPORT_ENCODING': 'utf-8',
-        'FEED_URI': 'brute.csv',
+        # 'FEED_FORMAT': 'csv',
+        # 'FEED_EXPORT_ENCODING': 'utf-8',
+        # 'FEED_URI': 'brute.csv',
         'LOG_FILE': 'brute.log',
         'LOG_LEVEL': "ERROR",
         'RETRY_TIMES': 1
@@ -71,9 +71,9 @@ class Bruter(Spider):
     def parse_page(self, response: scrapy.http.Response):
         item = UrlbruterItem()
         item['title'] = response.xpath('//title/text()').get() or 'н/д'
-        item['meta-description'] = response.xpath('//meta[@name="description"]'
+        item['meta_description'] = response.xpath('//meta[@name="description"]'
                                                    '/@content').get() or 'н/д'
-        item['phone_numbers'] = self.find_phone_number(response=response.text) or 'н/д'
+        item['phone_number'] = self.find_phone_number(response=response.text) or 'н/д'
         item['email'] = self.find_email(response=response.text) or 'н/д'
         item['inn'] = self.find_inn(response=response.text) or 'н/д'
         item['url'] = response.url
